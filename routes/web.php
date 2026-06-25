@@ -10,3 +10,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/mode-dewasa', [ModeDewasaController::class, 'index']);
 Route::get('/mode-anak', [ModeAnakController::class, 'index']);
 Route::get('/gerakan', [GerakanController::class,'index']);
+Route::get('/gerakan/{id}', [GerakanController::class,'show']);
