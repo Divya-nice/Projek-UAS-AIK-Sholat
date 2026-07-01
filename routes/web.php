@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\ModeAnakController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+Route::prefix('mode-anak')->name('mode-anak.')->group(function () {
+    Route::get('/sholat', [ModeAnakController::class, 'index'])->name('index');
+    Route::get('/sholat/{sholat}', [ModeAnakController::class, 'tampilkanGerakan'])->name('gerakan');
 });

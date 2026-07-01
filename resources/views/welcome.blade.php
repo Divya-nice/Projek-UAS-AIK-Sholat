@@ -689,7 +689,7 @@
 
     <!-- ── NAVBAR ── -->
     <nav class="navbar" role="navigation" aria-label="Navigasi utama">
-        <a href="#" class="nav-brand" aria-label="SholatKu Muhammadiyah – Beranda">
+        <a href="{{ route('home') }}" class="nav-brand" aria-label="SholatKu Muhammadiyah – Beranda">
             <div class="nav-logo" aria-hidden="true">ص</div>
             <div class="nav-name">
                 SholatKu
@@ -727,7 +727,7 @@
                 <a href="#" class="btn btn-primary" aria-label="Masuk ke Mode Dewasa">
                     📖 Mode Dewasa
                 </a>
-                <a href="#" class="btn btn-gold" aria-label="Masuk ke Mode Anak-anak">
+                <a href="{{ route('mode-anak.index') }}" class="btn btn-gold" aria-label="Masuk ke Mode Anak-anak">
                     🌟 Mode Anak
                 </a>
                 <a href="#mulai" class="btn btn-secondary" aria-label="Mulai belajar sekarang">
@@ -760,7 +760,7 @@
                 </a>
 
                 <!-- Anak -->
-                <a href="#" class="mode-card mode-card--anak" role="button" aria-label="Pilih Mode Anak-anak">
+                <a href="{{ route('mode-anak.index') }}" class="mode-card mode-card--anak" role="button" aria-label="Pilih Mode Anak-anak">
                     <span class="mode-card-icon" aria-hidden="true">🌈</span>
                     <div class="mode-card-title">Mode Anak</div>
                     <p class="mode-card-desc">Belajar sholat dengan cara yang menyenangkan melalui visual dan bahasa yang mudah dipahami.</p>
@@ -884,7 +884,7 @@
                 <p>Pelajari tata cara sholat yang benar sesuai tuntunan Rasulullah ﷺ, kapan saja dan di mana saja.</p>
                 <div class="cta-group" style="margin-bottom: 0;" role="group" aria-label="Tombol mulai belajar">
                     <a href="#" class="btn btn-gold" aria-label="Mulai dengan Mode Dewasa">📖 Mode Dewasa</a>
-                    <a href="#" class="btn btn-secondary" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25);" aria-label="Mulai dengan Mode Anak">🌟 Mode Anak</a>
+                    <a href="{{ route('mode-anak.index') }}" class="btn btn-secondary" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25);" aria-label="Mulai dengan Mode Anak">🌟 Mode Anak</a>
                 </div>
             </div>
         </div>
