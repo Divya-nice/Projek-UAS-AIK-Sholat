@@ -3,6 +3,7 @@
 use App\Http\Controllers\ModeAnakController;
 use App\Http\Controllers\ModeDewasaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,3 +18,4 @@ Route::prefix('mode-dewasa')->name('mode-dewasa.')->group(function () {
     Route::get('/sholat', [ModeDewasaController::class, 'index'])->name('index');
     Route::get('/sholat/{sholat}', [ModeDewasaController::class, 'tampilkanPanduan'])->name('panduan');
 });
+Route::get('/', [HomeController::class, 'index']);
