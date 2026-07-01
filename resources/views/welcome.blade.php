@@ -724,7 +724,7 @@
             </p>
 
             <div class="cta-group" role="group" aria-label="Pilih mode belajar">
-                <a href="#" class="btn btn-primary" aria-label="Masuk ke Mode Dewasa">
+                <a href="{{ route('mode-dewasa.index') }}" class="btn btn-primary" aria-label="Masuk ke Mode Dewasa">
                     📖 Mode Dewasa
                 </a>
                 <a href="{{ route('mode-anak.index') }}" class="btn btn-gold" aria-label="Masuk ke Mode Anak-anak">
@@ -746,7 +746,7 @@
             <div class="mode-cards">
 
                 <!-- Dewasa -->
-                <a href="#" class="mode-card mode-card--dewasa" role="button" aria-label="Pilih Mode Dewasa">
+                <a href="{{ route('mode-dewasa.index') }}" class="mode-card mode-card--dewasa" role="button" aria-label="Pilih Mode Dewasa">
                     <span class="mode-card-icon" aria-hidden="true">📘</span>
                     <div class="mode-card-title">Mode Dewasa</div>
                     <p class="mode-card-desc">Pembelajaran lengkap dan formal sesuai HPT Muhammadiyah dengan sumber referensi.</p>
@@ -883,7 +883,7 @@
                 <h3>Mulai Belajar Sekarang</h3>
                 <p>Pelajari tata cara sholat yang benar sesuai tuntunan Rasulullah ﷺ, kapan saja dan di mana saja.</p>
                 <div class="cta-group" style="margin-bottom: 0;" role="group" aria-label="Tombol mulai belajar">
-                    <a href="#" class="btn btn-gold" aria-label="Mulai dengan Mode Dewasa">📖 Mode Dewasa</a>
+                    <a href="{{ route('mode-dewasa.index') }}" class="btn btn-gold" aria-label="Mulai dengan Mode Dewasa">📖 Mode Dewasa</a>
                     <a href="{{ route('mode-anak.index') }}" class="btn btn-secondary" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25);" aria-label="Mulai dengan Mode Anak">🌟 Mode Anak</a>
                 </div>
             </div>
