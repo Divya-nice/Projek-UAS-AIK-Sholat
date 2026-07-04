@@ -1,3 +1,4 @@
+<?php
 use App\Http\Controllers\ModeAnakController;
 use App\Http\Controllers\ModeDewasaController;
 use App\Http\Controllers\HomeController;
