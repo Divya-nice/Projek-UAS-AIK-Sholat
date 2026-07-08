@@ -656,6 +656,72 @@
             font-weight: 500;
         }
 
+        /* ── Footer academic identity block ── */
+        .footer-academic {
+            margin: 1.5rem auto 0;
+            max-width: 520px;
+            background: var(--cream);
+            border: 1px solid rgba(13,79,74,.12);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem 1.4rem;
+            text-align: center;
+        }
+        .footer-academic .campus-name {
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--teal-deep);
+            margin-bottom: .15rem;
+        }
+        .footer-academic .prodi-name {
+            font-size: .74rem;
+            color: var(--muted);
+            margin-bottom: .9rem;
+        }
+        .footer-academic .academic-block + .academic-block {
+            margin-top: .9rem;
+            padding-top: .9rem;
+            border-top: 1px dashed rgba(13,79,74,.15);
+        }
+        .footer-academic .academic-label {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: .45rem;
+        }
+        .footer-academic .dosen-name {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .footer-academic .dosen-nidn {
+            font-size: .68rem;
+            color: var(--muted);
+            margin-top: .1rem;
+        }
+        .footer-academic .members-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .4rem .75rem;
+            list-style: none;
+        }
+        .footer-academic .members-grid li {
+            font-size: .74rem;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+        .footer-academic .members-grid .nim {
+            display: block;
+            font-size: .64rem;
+            font-weight: 400;
+            color: var(--muted);
+        }
+        @media (max-width: 480px) {
+            .footer-academic .members-grid { grid-template-columns: 1fr; }
+        }
+
         /* ============================================================
            RESPONSIVE
         ============================================================ */
@@ -894,8 +960,31 @@
     <footer role="contentinfo">
         <div class="footer-logo">SholatKu Muhammadiyah</div>
         <p>
-            Tuntunan Tata Cara Sholat Sesuai HPT Muhammadiyah<br>
+            Tuntunan Tata Cara Sholat Sesuai HPT Muhammadiyah
+            <br>
         </p>
+
+        <div class="footer-academic">
+            <div class="campus-name">Universitas Muhammadiyah Pontianak</div>
+            <div class="prodi-name">Program Studi Sistem Informasi</div>
+
+            <div class="academic-block">
+                <div class="academic-label">Dosen Pengampu</div>
+                <div class="dosen-name">Dedy Susanto, S.Pd.I., M.M.</div>
+                <div class="dosen-nidn">NIDN. 1128048303</div>
+            </div>
+
+            <div class="academic-block">
+                <div class="academic-label">Anggota Kelompok</div>
+                <ul class="members-grid">
+                    <li>Merlinsha Lunny<span class="nim">241230021</span></li>
+                    <li>Divya Harinda Verlita<span class="nim">241230011</span></li>
+                    <li>Nabila Septi Ramadani<span class="nim">241230039</span></li>
+                    <li>Natasya Helmalia<span class="nim">241230059</span></li>
+                    <li>Haliza Zulqa Aulia<span class="nim">241230002</span></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
 </body>
