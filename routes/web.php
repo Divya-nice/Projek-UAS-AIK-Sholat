@@ -1,8 +1,9 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModeAnakController;
 use App\Http\Controllers\ModeDewasaController;
-use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
