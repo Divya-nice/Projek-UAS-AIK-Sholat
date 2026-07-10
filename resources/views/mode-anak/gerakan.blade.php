@@ -221,7 +221,7 @@
         }
 
         .gerakan-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-        .kartu-gerakan.terbuka .gerakan-body { max-height: 700px; }
+        .kartu-gerakan.terbuka .gerakan-body { max-height: 2000px; }
 
         .gerakan-body-inner {
             padding: 0 1.3rem 1.5rem;
@@ -230,14 +230,14 @@
 
         .ilustrasi-gerakan {
             width: 100%;
-            aspect-ratio: 16/9;
+            height: 90px;      /* atau 80px */
             margin-top: 1.1rem;
             border-radius: 18px;
             background: linear-gradient(160deg, var(--biru), var(--ungu));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.4rem;
+            font-size: 2.3rem;
         }
 
         .label-kecil {
@@ -405,10 +405,13 @@
 
             kartu.classList.toggle('terbuka', !sedangTerbuka);
 
-            if (!sedangTerbuka) {
-                gerakanTerbuka.add(kartu.dataset.index);
-                perbaruiProgress();
-            }
+            const body = kartu.querySelector('.gerakan-body');
+
+                if (!sedangTerbuka) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                } else {
+                    body.style.maxHeight = null;
+                }   
         }
 
         function perbaruiProgress() {

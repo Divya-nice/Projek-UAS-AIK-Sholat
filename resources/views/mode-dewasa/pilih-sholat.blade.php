@@ -245,13 +245,6 @@
             @endforeach
         </div>
 
-        <div class="tombol-audio">
-            <button type="button" class="btn-audio" id="btnAudio" aria-label="Putar audio pengantar niat umum">
-                <span class="icon-speaker" aria-hidden="true">🔊</span>
-                <span>Audio Pengantar Niat Umum</span>
-            </button>
-        </div>
-
         <p class="footer-note">Pilih salah satu waktu sholat untuk melihat panduan rukun fiqih secara lengkap.</p>
 
     </div>

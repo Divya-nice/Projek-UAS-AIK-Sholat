@@ -127,7 +127,7 @@ class ModeDewasaController extends Controller
                 'nama'  => 'Bersedekap & Doa Iftitah',
                 'arab'  => 'اَللّهُمَّ باَعِدْ بَيْنِى وَبَيْنَ خَطَاياَيَ كَمَا باَعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِاَللّهُمَّ نَقِّنِى مِنَ الْخَطَاياَ كَماَ يُنَقَّى الثَّوْبُ اْلأَبْيَضُ مِنَ الدَّنَسِاَللّهُمَّ اغْسِلْ خَطَاياَيَ باِلْماَءِ وَالثَّلْجِ وَالْبَرَدِ.',
                 'latin' => 'Allaahumma baa’id bainii wabainaa khotoo yaa ya kamaa baa ‘adta bainal masyriqi wal maghrib. Allaahumma naqqinii minal khotoo yaa kamaa yunqqots tsaubul abyadhuu minaddanas. Allaahummaghsil khotoo yaa ya bil maa i wats tsalji walbarod',
-                'arti'  => '“Ya Allah, jauhkanlah antara diriku dan di antara kesalahan-kesalahanku sebagaimana Engkau jauhkan antara timur dan barat. Ya Allah, bersihkanlah aku dari kesalahan sebagaimana dibersihkannya kain putih dari kotoran. Ya Allah, cucilah kesalahan-kesalahanku dengan air, salju dan embun.”',
+                'arti'  => 'Ya Allah, jauhkanlah antara diriku dan di antara kesalahan-kesalahanku sebagaimana Engkau jauhkan antara timur dan barat. Ya Allah, bersihkanlah aku dari kesalahan sebagaimana dibersihkannya kain putih dari kotoran. Ya Allah, cucilah kesalahan-kesalahanku dengan air, salju dan embun.',
                 'audio' => route('audio.gerakan', ['kode' => 'iftitah']),
             ],
             [
@@ -136,7 +136,7 @@ class ModeDewasaController extends Controller
                 'arab'  => 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
                 'latin' => 'Au-dzu billa-himinasy syaita nirraji-m',
                 'arti'  => 'Aku berlindung pada Allah, dari syaithan yang terkutuk',
-                'audio' => '',
+                'audio' => route('audio.gerakan', ['kode' => 'taawudz']),
             ],
             [
                 'kode'  => 'basmalah',
@@ -144,7 +144,7 @@ class ModeDewasaController extends Controller
                 'arab'  => 'بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيْ',
                 'latin' => 'Bismillahirrahmannirrahiim',
                 'arti'  => 'Atas nama Allah, maha Pemurah, maha Pengasih',
-                'audio' => '',
+                'audio' => route('audio.gerakan', ['kode' => 'basmalah']),
             ],
             [
                 'kode'  => 'al-fatihah',
@@ -183,7 +183,7 @@ class ModeDewasaController extends Controller
                 'nama'  => 'Sujud Pertama',
                 'arab'  => 'سُبْحَانَكَ اللّٰهُمَّ رَبَّنَا وَبِحَمْدِكَ اَللّٰهُمَّ اغْفِرْلِيْ',
                 'latin' => 'Subhaanaka allaahumma robbanaa wabihamdika allaahumaghfirlii.',
-                'arti'  => '"Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku."',
+                'arti'  => 'Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku.',
                 'audio' => route('audio.gerakan', ['kode' => 'sujud']),
             ],
             [
@@ -199,7 +199,7 @@ class ModeDewasaController extends Controller
                 'nama'  => 'Sujud Kedua',
                 'arab'  => 'سُبْحَانَكَ اللّٰهُمَّ رَبَّنَا وَبِحَمْدِكَ اَللّٰهُمَّ اغْفِرْلِيْ',
                 'latin' => 'Subhaanaka allaahumma robbanaa wabihamdika allaahumaghfirlii.',
-                'arti'  => '"Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku."',
+                'arti'  => 'Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku.',
                 'audio' => route('audio.gerakan', ['kode' => 'sujud']),
             ],
             [
@@ -303,7 +303,9 @@ class ModeDewasaController extends Controller
         $peta = [
             'takbir'             => 'Allah huakbar.mpeg',
             'iftitah'            => 'Doa Iftitah.mpeg',
-            'al-fatihah'         => 'al fatiha.mpeg',
+            'taawudz'            => 'Taawudz.mp3',
+            'basmalah'           => 'Basmalah.mp3',
+            'al-fatihah'         => 'Al-Fatihah.mp3',
             'al-ikhlas'          => 'al-ikhlas.mpeg',
             'ruku'               => 'ruku.mpeg',
             'itidal'             => ". I'tidal.mpeg",

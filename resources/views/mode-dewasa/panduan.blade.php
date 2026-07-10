@@ -304,18 +304,30 @@
 
                     <div class="rukun-body">
                         <div class="rukun-body-inner">
-                            <p class="label-kecil">Teks Arab</p>
-                            <p class="bacaan-arab">{{ $rukun['arab'] }}</p>
+                            @if (!empty($rukun['arab']))
+                                <p class="label-kecil">Teks Arab</p>
+                                <p class="bacaan-arab">{{ $rukun['arab'] }}</p>
+                            @endif
 
-                            <p class="label-kecil">Transliterasi Latin</p>
+                            <!--<p class="label-kecil">Teks Arab</p>
+                            <p class="bacaan-arab">{{ $rukun['arab'] }}</p>-->
+
+                            @if (!empty($rukun['latin']))
+                                <p class="label-kecil">Teks Latin</p>
+                                <p class="bacaan-latin">
+                                    {{ $rukun['latin'] }}
+                                </p>
+                            @endif
+
+                            <!--<p class="label-kecil">Transliterasi Latin</p>
                             <p class="bacaan-latin">
                                 {{ $rukun['latin'] }}
                                 @if (!empty($rukun['jumlah']))
                                     <span class="badge-jumlah">{{ $rukun['jumlah'] }}</span>
                                 @endif
-                            </p>
+                            </p>-->
 
-                            <p class="label-kecil">Terjemahan Arti</p>
+                            <p class="label-kecil">Penjelasan</p>
                             <p class="bacaan-arti">
                                 "{{ $rukun['arti'] }}"
                                 @if (!empty($rukun['sumber']))
@@ -323,7 +335,19 @@
                                 @endif
                             </p>
 
-                            <button
+                            @if (!empty($rukun['audio']))
+                                <button
+                                    type="button"
+                                    class="btn-audio"
+                                    data-audio="{{ $rukun['audio'] }}"
+                                    onclick="putarSuara(this, {{ Js::from($rukun['latin']) }})"
+    >
+                                    <span class="icon-speaker">▶</span>
+                                    <span>Audio Murottal</span>
+                                    </button>
+                            @endif
+
+                            <!--<button
                                 type="button"
                                 class="btn-audio"
                                 data-audio="{{ $rukun['audio'] ?? '' }}"
@@ -332,7 +356,7 @@
                             >
                                 <span class="icon-speaker" aria-hidden="true">▶</span>
                                 <span>Audio Murottal</span>
-                            </button>
+                            </button>-->
 
                             @if (!empty($rukun['catatan']))
                                 <p class="label-kecil">Catatan Fiqih</p>

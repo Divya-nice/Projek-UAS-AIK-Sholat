@@ -271,7 +271,7 @@
 
         {{-- Sub judul --}}
         <p class="subjudul">
-            Pilih Sholat yang Mau Kamu <span class="highlight">Pelajari</span> Hari Ini, Sayang:
+            Pilih Sholat yang Mau Kamu <span class="highlight">Pelajari</span> Hari Ini :
         </p>
 
         {{-- Grid pilihan sholat --}}
@@ -307,42 +307,7 @@
                 @endif
             @endforeach
         </div>
-
-        {{-- Tombol Suara --}}
-        <div class="tombol-suara">
-            <button type="button" class="btn-suara" id="btnSuara" aria-label="Putar suara ajakan memilih sholat">
-                <span class="icon-speaker" aria-hidden="true">🔊</span>
-                <span>"Ayo pilih salah satu sholatnya!"</span>
-            </button>
-        </div>
-
     </div>
-
-    <script>
-        // Tombol suara memakai Web Speech API (text-to-speech bawaan browser)
-        const btnSuara = document.getElementById('btnSuara');
-        const teksAjakan = 'Ayo pilih salah satu sholatnya!';
-
-        btnSuara.addEventListener('click', () => {
-            if (!('speechSynthesis' in window)) {
-                alert(teksAjakan);
-                return;
-            }
-
-            window.speechSynthesis.cancel();
-
-            const ucapan = new SpeechSynthesisUtterance(teksAjakan);
-            ucapan.lang = 'id-ID';
-            ucapan.rate = 0.95;
-            ucapan.pitch = 1.15;
-
-            btnSuara.classList.add('playing');
-            ucapan.onend = () => btnSuara.classList.remove('playing');
-            ucapan.onerror = () => btnSuara.classList.remove('playing');
-
-            window.speechSynthesis.speak(ucapan);
-        });
-    </script>
-
+    
 </body>
 </html>
