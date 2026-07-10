@@ -48,20 +48,68 @@ class ModeAnakController extends Controller
         ];
     }
 
-    /**
-     * 12 gerakan/rukun sholat, urut dari Takbiratul Ihram sampai Salam.
-     */
-    protected function daftarGerakan(): array
+    protected function daftarNiat(): array
     {
         return [
+            'subuh' => [
+                'arab'  => 'أُصَلِّى فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلّٰهِ تَعَالَى',
+                'latin' => 'Ushalli fardhash shubhi rak\'ataini mustaqbilal qiblati adaa-an lillaahi ta\'aalaa.',
+                'arti'  => 'Aku niat mengerjakan sholat fardhu Subuh dua rakaat menghadap kiblat, saat ini, karena Allah Ta\'ala.',
+                'audio' => 'audio/niat-subuh.mp3',
+            ],
+            'dzuhur' => [
+                'arab'  => 'أُصَلِّى فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلَّهِ تَعَالَ',
+                'latin' => 'Ushollii fardhoz Dzuhri arba’a rokaatin mustaqbilal qiblati adaa’an lilaahi ta’aalaa.',
+                'arti'  => 'Saya (berniat) mengerjakan salat fardhu Dzuhur 4 raka’at menghadap kiblat, (sholat sendiri) karena Allah Ta’ala.',
+                'audio' => 'audio/niat-dzuhur.mp3',
+            ],
+            'ashar' => [
+                'arab'  => 'أُصَلِّى فَرْضَ الْعَصْرِأَرْبَعَ رَكَعاَتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلّٰهِ تَعَالَى',
+                'latin' => 'Ushalli fardhal \'ashri arba\'a raka\'aatain mustaqbilal qiblati adaa-an lillahi ta\'aala',
+                'arti'  => 'Aku niat melakukan sholat fardhu Ashar empat rakaat sambil menghadap kiblat saat ini karena Allah Ta\'ala.',
+                'audio' => 'audio/niat-ashar.mp3',
+            ],
+            'maghrib' => [
+                'arab'  => 'أُصَلِّى فَرْضَ المَغْرِبِ ثَلاَثَ رَكَعاَتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لله تَعَالَى',
+                'latin' => 'Ushalli fardho maghribi tsalaatsa raka’aatin mustaqbilal qiblati adaa,an lillaahi ta’aala.',
+                'arti'  => 'Saya melakukan shalat fardhu maghrib sebanyak tiga rakaat dengan menghadap kiblat, pada waktunya karena Allah Ta’ala.',
+                'audio' => 'audio/niat-maghrib.mp3',
+            ],
+            'isya' => [
+                'arab'  => 'أُصَلِّى فَرْضَ العِشَاء ِأَرْبَعَ رَكَعاَتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لله تَعَالَى',
+                'latin' => 'Usholli fardlol i\'syaa-i arba\'a roka\'aataim mustaqbilal qiblati adaa-an lillahi ta\'aala',
+                'arti'  => '"Aku niat melakukan sholat fardu isya 4 rakaat, sambil menghadap kiblat, saat ini, karena Allah ta\'ala"',
+                'audio' => 'audio/niat-isya.mp3',
+            ],
+        ];
+    }
+
+    /**
+     * Daftar gerakan/rukun sholat (termasuk Niat), urut dari Niat sampai Salam.
+     * Niat disuntikkan sesuai waktu sholat, sama seperti Mode Dewasa.
+     */
+    protected function daftarGerakan(string $slug): array
+    {
+        $niat = $this->daftarNiat()[$slug] ?? ['arab' => '', 'latin' => '', 'arti' => ''];
+
+        $gerakan = [
+            [
+                'emoji'  => '🧠',
+                'nama'   => 'Niat Sholat',
+                'arab'   => $niat['arab'],
+                'latin'  => $niat['latin'],
+                'arti'   => $niat['arti'],
+                'audio'  => route('mode-dewasa.audio', ['sholat' => $slug]),
+            ],
             [
                 'urutan' => 1,
                 'emoji'  => '🤲',
-                'nama'   => 'Niat & Takbiratul Ihram',
+                'nama'   => 'Takbiratul Ihram',
                 'arab'   => 'اَللهُ أَكْبَرُ',
                 'latin'  => "Allaahu Akbar",
                 'jumlah' => '1x',
-                'arti'   => 'Allah Maha Besar! Ucapkan sambil angkat dua tangan ke atas, lalu niat sholat di dalam hati ya.',
+                'arti'   => 'Allah Maha Besar! Angkat dua tangan sejajar telinga sambil ucapkan takbir ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'takbir']),
             ],
             [
                 'urutan' => 2,
@@ -71,6 +119,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Subhaanakallaahumma wa bihamdik",
                 'jumlah' => '1x',
                 'arti'   => 'Maha Suci Engkau ya Allah, dengan memuji-Mu. Taruh tangan kanan di atas tangan kiri di dada ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'iftitah']),
             ],
             [
                 'urutan' => 3,
@@ -80,6 +129,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Bismillaahir rahmaanir rahiim",
                 'jumlah' => 'Tiap rakaat',
                 'arti'   => 'Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang. Baca Al-Fatihah pelan-pelan ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'al-fatihah']),
             ],
             [
                 'urutan' => 4,
@@ -89,6 +139,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Subhaana robbiyal 'adziimi wa bihamdih",
                 'jumlah' => '3x',
                 'arti'   => 'Maha Suci Tuhanku Yang Maha Agung. Badan membungkuk, tangan pegang lutut, punggung lurus datar ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'ruku']),
             ],
             [
                 'urutan' => 5,
@@ -98,15 +149,17 @@ class ModeAnakController extends Controller
                 'latin'  => "Sami'allaahu liman hamidah, Rabbanaa lakal hamd",
                 'jumlah' => '1x',
                 'arti'   => 'Allah mendengar orang yang memuji-Nya. Ya Allah, bagi-Mu segala puji. Bangun tegak dari ruku ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'itidal']),
             ],
             [
                 'urutan' => 6,
                 'emoji'  => '🛐',
                 'nama'   => 'Gerakan Sujud',
-                'arab'   => 'سُبْحَانَ رَبِّيَ الْأَعْلَى وَبِحَمْدِهِ',
-                'latin'  => "Subhaana robbiyal a'laa wa bihamdih",
+                'arab'   => 'سُبْحَانَكَ اللّٰهُمَّ رَبَّنَا وَبِحَمْدِكَ اَللّٰهُمَّ اغْفِرْلِيْ',
+                'latin'  => "Subhaanaka allaahumma robbanaa wabihamdika allaahumaghfirlii.",
                 'jumlah' => '3x',
-                'arti'   => 'Maha Suci Tuhanku Yang Maha Tinggi. Dahi, hidung, dua tangan, dua lutut & ujung kaki nempel lantai ya!',
+                'arti'   => 'Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku.',
+                'audio'  => route('audio.gerakan', ['kode' => 'sujud']),
             ],
             [
                 'urutan' => 7,
@@ -116,15 +169,17 @@ class ModeAnakController extends Controller
                 'latin'  => "Rabbighfirlii warhamnii wajburnii warfa'nii warzuqnii wahdinii wa'aafinii wa'fu 'annii",
                 'jumlah' => '1x',
                 'arti'   => 'Ya Allah, ampuni aku, sayangi aku, cukupkan aku, angkat derajatku, beri aku rezeki dan petunjuk.',
+                'audio'  => route('audio.gerakan', ['kode' => 'duduk-antara-sujud']),
             ],
             [
                 'urutan' => 8,
                 'emoji'  => '🛐',
                 'nama'   => 'Sujud Kedua',
-                'arab'   => 'سُبْحَانَ رَبِّيَ الْأَعْلَى وَبِحَمْدِهِ',
-                'latin'  => "Subhaana robbiyal a'laa wa bihamdih",
+                'arab'   => 'سُبْحَانَكَ اللّٰهُمَّ رَبَّنَا وَبِحَمْدِكَ اَللّٰهُمَّ اغْفِرْلِيْ',
+                'latin'  => "Subhaanaka allaahumma robbanaa wabihamdika allaahumaghfirlii.",
                 'jumlah' => '3x',
-                'arti'   => 'Sama seperti sujud pertama ya! Setelah ini bangkit berdiri lagi atau duduk tasyahud.',
+                'arti'   => 'Maha suci Engkau, ya Allah, Tuhan kami, dan dengan memuji kepada Engkau, ya Allah, ampunilah aku.',
+                'audio'  => route('audio.gerakan', ['kode' => 'sujud']),
             ],
             [
                 'urutan' => 9,
@@ -134,6 +189,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Allaahu Akbar",
                 'jumlah' => '1x',
                 'arti'   => 'Allah Maha Besar! Bangun lagi ke rakaat berikutnya sambil takbir, tanpa angkat tangan ya.',
+                'audio'  => route('audio.gerakan', ['kode' => 'takbir']),
             ],
             [
                 'urutan' => 10,
@@ -143,6 +199,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Attahiyyaatu lillaahi wash-shalawaatu wath-thayyibaat",
                 'jumlah' => '1x (rakaat ke-2)',
                 'arti'   => 'Segala penghormatan, sholawat dan kebaikan hanya untuk Allah. Duduk sambil telunjuk kanan menunjuk ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'tasyahud-awal']),
             ],
             [
                 'urutan' => 11,
@@ -152,6 +209,7 @@ class ModeAnakController extends Controller
                 'latin'  => "Allaahumma shalli 'alaa Muhammad wa 'alaa aali Muhammad",
                 'jumlah' => '1x',
                 'arti'   => 'Ya Allah, limpahkan sholawat kepada Nabi Muhammad. Duduk tawarruk di rakaat terakhir ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'tasyahud-akhir']),
             ],
             [
                 'urutan' => 12,
@@ -161,8 +219,15 @@ class ModeAnakController extends Controller
                 'latin'  => "Assalaamu'alaikum warahmatullaah",
                 'jumlah' => '2x (kanan & kiri)',
                 'arti'   => 'Semoga keselamatan & rahmat Allah untukmu! Tengok kanan lalu kiri ya, sholat selesai!',
+                'audio'  => route('audio.gerakan', ['kode' => 'salam']),
             ],
         ];
+
+        foreach ($gerakan as $index => $item) {
+            $gerakan[$index]['urutan'] = $index + 1;
+        }
+
+        return $gerakan;
     }
 
     /**
@@ -186,7 +251,7 @@ class ModeAnakController extends Controller
 
         return view('mode-anak.gerakan', [
             'sholat'        => $data,
-            'daftarGerakan' => $this->daftarGerakan(),
+            'daftarGerakan' => $this->daftarGerakan($data['slug']),
         ]);
     }
 }
