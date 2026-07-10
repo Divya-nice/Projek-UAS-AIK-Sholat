@@ -133,6 +133,16 @@ class ModeAnakController extends Controller
             ],
             [
                 'urutan' => 4,
+                'emoji'  => '📗',
+                'nama'   => 'Membaca Surat Pendek (Al-Ikhlas)',
+                'arab'   => 'قُلْ هُوَ اللّٰهُ اَحَدٌ ۝١ اَللّٰهُ الصَّمَدُ ۝٢ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۝٣ وَلَمْ يَكُنْ لَّهٰ كُفُوًا اَحَدٌ ۝٤',
+                'latin'  => "Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul lahuu kufuwan ahad.",
+                'jumlah' => 'Setelah Al-Fatihah',
+                'arti'   => 'Ini surat Al-Ikhlas: Allah Maha Esa, tempat kita meminta segala sesuatu. Dibaca setelah Al-Fatihah ya!',
+                'audio'  => route('audio.gerakan', ['kode' => 'al-ikhlas']),
+            ],
+            [
+                'urutan' => 4,
                 'emoji'  => '🙇',
                 'nama'   => 'Gerakan Ruku',
                 'arab'   => 'سُبْحَانَ رَبِّيَ الْعَظِيمِ وَبِحَمْدِهِ',
