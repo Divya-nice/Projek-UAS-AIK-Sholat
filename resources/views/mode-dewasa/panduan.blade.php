@@ -326,6 +326,7 @@
                             <button
                                 type="button"
                                 class="btn-audio"
+                                data-audio="{{ $rukun['audio'] ?? '' }}"
                                 onclick="putarSuara(this, {{ Js::from($rukun['latin']) }})"
                                 aria-label="Putar audio murottal {{ $rukun['nama'] }}"
                             >
@@ -365,7 +366,25 @@
             tombol.setAttribute('aria-expanded', String(!sedangTerbuka));
         }
 
+        function putarAudioFile(tombol, url) {
+            if (window.speechSynthesis) { window.speechSynthesis.cancel(); }
+            if (window._audioAktif) { window._audioAktif.pause(); window._audioAktif.currentTime = 0; }
+            const audio = new Audio(url);
+            window._audioAktif = audio;
+            const label = tombol.querySelector('span:last-child');
+            const labelAsli = label.getAttribute('data-asli') || label.textContent;
+            label.setAttribute('data-asli', labelAsli);
+            tombol.classList.add('playing');
+            label.textContent = 'Sedang Diputar...';
+            const selesai = () => { tombol.classList.remove('playing'); label.textContent = labelAsli; };
+            audio.onended = selesai;
+            audio.onerror = () => { selesai(); alert('Maaf, file audio tidak dapat diputar.'); };
+            audio.play().catch(() => selesai());
+        }
+
         function putarSuara(tombol, teks) {
+            const audioUrl = tombol.dataset.audio;
+            if (audioUrl) { return putarAudioFile(tombol, audioUrl); }
             if (!('speechSynthesis' in window)) {
                 alert('Perangkat/browser ini belum mendukung audio murottal otomatis.');
                 return;
