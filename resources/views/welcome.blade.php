@@ -817,9 +817,9 @@
                     <div class="mode-card-title">Mode Dewasa</div>
                     <p class="mode-card-desc">Pembelajaran lengkap dan formal sesuai HPT Muhammadiyah dengan sumber referensi.</p>
                     <ul class="mode-card-features" aria-label="Fitur Mode Dewasa">
-                        <li>Bacaan Arab lengkap beserta sumber</li>
+                        <li>Bacaan Arab lengkap</li>
                         <li>Transliterasi Latin & terjemahan</li>
-                        <li>Audio pelafalan & video gerakan</li>
+                        <li>Audio pelafalan</li>
                         <li>Tampilan formal & profesional</li>
                     </ul>
                     <span class="mode-card-cta">Masuk ke Mode Dewasa</span>
@@ -831,9 +831,8 @@
                     <div class="mode-card-title">Mode Anak</div>
                     <p class="mode-card-desc">Belajar sholat dengan cara yang menyenangkan melalui visual dan bahasa yang mudah dipahami.</p>
                     <ul class="mode-card-features" aria-label="Fitur Mode Anak">
-                        <li>Gambar kartun yang menarik</li>
                         <li>Bahasa sederhana & ramah anak</li>
-                        <li>Audio & video animasi</li>
+                        <li>Audio pelafalan</li>
                         <li>Warna cerah & ikon lucu</li>
                     </ul>
                     <span class="mode-card-cta">Masuk ke Mode Anak</span>
@@ -861,11 +860,6 @@
                         <p class="feature-desc">Dengarkan pelafalan yang benar untuk setiap bacaan sholat.</p>
                     </div>
                     <div class="feature-item" role="listitem">
-                        <span class="feature-icon" aria-hidden="true">🎬</span>
-                        <div class="feature-name">Video Gerakan</div>
-                        <p class="feature-desc">Tonton demonstrasi gerakan sholat secara langsung dan jelas.</p>
-                    </div>
-                    <div class="feature-item" role="listitem">
                         <span class="feature-icon" aria-hidden="true">▶️</span>
                         <div class="feature-name">Autoplay Sholat</div>
                         <p class="feature-desc">Jalankan seluruh gerakan secara otomatis dan berurutan.</p>
@@ -874,11 +868,6 @@
                         <span class="feature-icon" aria-hidden="true">📊</span>
                         <div class="feature-name">Progress Belajar</div>
                         <p class="feature-desc">Pantau seberapa jauh kamu telah menguasai materi.</p>
-                    </div>
-                    <div class="feature-item" role="listitem">
-                        <span class="feature-icon" aria-hidden="true">🏆</span>
-                        <div class="feature-name">Quiz & Sertifikat</div>
-                        <p class="feature-desc">Uji pemahaman dan dapatkan sertifikat penyelesaian.</p>
                     </div>
                 </div>
             </div>
